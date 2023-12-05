@@ -43,7 +43,7 @@ if __name__ == "__main__":
     issue_title = sys.argv[1]
     issue_body = sys.argv[2]
     
-    SUBJECT_MATCH = "Trading Signals"
+    SUBJECT_MATCH = "Trading signals"
     
     if SUBJECT_MATCH not in issue_title:
         print("Invalid Issue Title")
