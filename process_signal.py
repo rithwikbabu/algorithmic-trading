@@ -3,21 +3,22 @@ from datetime import datetime
 
 def process_signal(body):
     body_0 = body.replace('\n', ' ')
+    _, body_1 = body_0.strip().split("symbol")
     
-    _, body_1 = body_0.split(" symbol ")
-    SYMBOL, body_2 = body_1.split(" last ")
+    dirty_symbol, body_2 = body_1.strip().split("last")
+    SYMBOL = dirty_symbol.strip()
 
-    dirty_price, body_3 = body_2.split(" target ")
-    PRICE = float(dirty_price)
+    dirty_price, body_3 = body_2.strip().split("target")
+    PRICE = float(dirty_price.strip())
 
-    dirty_target, body_4 = body_3.split(" stop ")
-    TARGET = float(dirty_target)
+    dirty_target, body_4 = body_3.strip().split("stop")
+    TARGET = float(dirty_target.strip())
 
-    dirty_stop_loss, body_5 = body_4.split(" time ")
-    STOP_LOSS = float(dirty_stop_loss)
+    dirty_stop_loss, body_5 = body_4.strip().split("time")
+    STOP_LOSS = float(dirty_stop_loss.strip())
 
-    dirty_time, type = body_5.split(" bull_type ")
-    TIME = datetime.strptime(dirty_time, "%Y-%m-%d %H:%M:%S.%f")
+    dirty_time, type = body_5.strip().split("bull_type")
+    TIME = datetime.strptime(dirty_time.strip(), "%Y-%m-%d %H:%M:%S.%f")
     
     TYPE = int(type.strip())
     
