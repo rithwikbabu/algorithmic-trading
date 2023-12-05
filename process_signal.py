@@ -1,6 +1,8 @@
 import sys
 from datetime import datetime
 
+from execute_trade import execute_trade
+
 def process_signal(body):
     body_0 = body.replace('\n', ' ')
     _, body_1 = body_0.strip().split("symbol")
@@ -47,6 +49,14 @@ if __name__ == "__main__":
         print("Invalid Issue Title")
         sys.exit(1)
     
-    results = process_signal(issue_body)
+    signal_data = process_signal(issue_body)
     
-    print(results)
+    print(signal_data)
+    
+    print("Trading...")
+    
+    try:
+        response = execute_trade(signal_data)
+        print("Order placed!")
+    except Exception as e:
+        print("Order failed! ", e)
