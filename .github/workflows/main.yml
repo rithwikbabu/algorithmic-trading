@@ -16,6 +16,9 @@ jobs:
         with:
           python-version: '3.8'
 
+      - name: Install Python Dependencies
+        run: pip install -r requirements.txt
+
       - name: Run Python Script
         run: python process_signal.py "${{ github.event.issue.title }}" "${{ github.event.issue.body }}"
         env:
