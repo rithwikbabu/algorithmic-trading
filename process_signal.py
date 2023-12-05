@@ -2,7 +2,9 @@ import sys
 from datetime import datetime
 
 def process_signal(body):
-    _, body_1 = body.split(" symbol ")
+    body_0 = body.replace('\n', ' ')
+    
+    _, body_1 = body_0.split(" symbol ")
     SYMBOL, body_2 = body_1.split(" last ")
 
     dirty_price, body_3 = body_2.split(" target ")
