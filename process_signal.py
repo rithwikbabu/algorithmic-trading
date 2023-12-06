@@ -58,5 +58,7 @@ if __name__ == "__main__":
     try:
         response = execute_trade(signal_data)
         print("Order placed!")
+
+        print(response)
     except Exception as e:
         print("Order failed! ", e)
