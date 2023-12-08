@@ -13,8 +13,7 @@ api = tradeapi.REST(ALPACA_KEY, ALPACA_SECRET,
                     base_url='https://paper-api.alpaca.markets')
 
 # Define the proportions for each position
-POSITION_SIZES = [.1, .1, .1, .1, .1,
-                  .1, .1, .1, .1, .1]
+POSITION_SIZES = [.2, .2, .2, .2, .2]
 
 
 def execute_trade(signal):
