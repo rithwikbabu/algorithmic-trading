@@ -18,7 +18,7 @@ POSITION_SIZES = [.2, .2, .2, .2, .2]
 
 def execute_trade(signal):
     symbol = signal['symbol']
-    price = round(signal['price'], 2)
+    price = round(signal['price'] * 1.0025, 2)
     target = round(signal['target'], 2)
     stop_loss = round(signal['stop_loss'], 2)
 
